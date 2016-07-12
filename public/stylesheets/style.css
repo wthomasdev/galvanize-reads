@@ -1,8 +1,37 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background: url(https://continuumgrc.com/wp-content/uploads/2016/01/library_infinite.jpg) no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;*/
+ color:#faebd7;
 }
 
 a {
   color: #00B7FF;
+}
+
+
+
+nav {
+  background-color:#3D3D3D;
+  opacity:0.8;
+}
+
+main {
+  padding-left:5vw;
+}
+
+.card-panel {
+}
+
+.logoimage {
+  padding-top:2vh;
+  height:5vh;
+  width:5vw;
+}
+
+.introtext {
+  color:#3D3D3D;
 }
