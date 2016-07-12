@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var routes = require('./routes/index');
 var books = require('./routes/books');
-var users = require('./routes/users');
 
 var app = express();
 
