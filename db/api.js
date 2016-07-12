@@ -27,7 +27,22 @@ module.exports = {
   },
   addAuthor: function (data) {
     return knex('author').insert(data);
-  }
+  },
+  deleteAuthorById: function(authorId) {
+    return knex('author').del().where({
+      id: authorId
+    })
+  },
+  getAuthorById: function (authorId) {
+    return knex('author').select().where({
+      id: authorId
+    }).first()
+  },
+  deleteAuthorById: function(authorId) {
+    return knex('author').del().where({
+      id: authorId
+    })
+  },
 
 
 };

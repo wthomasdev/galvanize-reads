@@ -30,15 +30,15 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/:id/confirm', function(req, res, next) {
-  db.getBookById(req.params.id).then(function (book) {
-    res.render('deleteconfirmation', {book:book})
+  db.getAuthorById(req.params.id).then(function (author) {
+    res.render('deleteauthor', {author:author})
   });
 });
 
 router.delete('/:id/delete', function(req, res, next){
-  db.deleteBookById(req.params.id)
+  db.deleteAuthorById(req.params.id)
     .then(function(){
-      res.redirect('/books')
+      res.redirect('/authors')
     })
 });
 
