@@ -1,0 +1,23 @@
+<main class="container">
+  <div class="section">
+          <div class="row">
+            <div class="col s12 m6 offset-m3">
+    <h3>Add a book:</h3>
+    <br>
+    <form action="/books/add" method="POST">
+        <label for="book_title">Book Title</label>
+        <input id="book_title" name="title">
+        <label for="book_genre">Book Genre:</label>
+        <input id="book_genre" name="book_genre">
+        <br>
+        <br>
+        <label for="book_description">Book Description:</label>
+        <textarea id="book_description" name="book_description" class="materialize-textarea"></textarea>
+        <label for="book_cover_url">Book Cover Url:</label>
+        <input id="book_cover_url" type="url" name="book_cover_url">
+        <button type="submit" class="waves-effect waves-light btn">Submit</button>
+    </form>
+</div>
+  </div>
+</div>
+</main>

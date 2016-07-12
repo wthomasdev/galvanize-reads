@@ -1,6 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color:red;
+  background-color:#EAEBED;
   /*background: url(https://continuumgrc.com/wp-content/uploads/2016/01/library_infinite.jpg) no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
@@ -35,4 +35,8 @@ main {
 
 .introtext {
   color:#3D3D3D;
+}
+
+.imageborder {
+  border-bottom: 3px solid grey;
 }
