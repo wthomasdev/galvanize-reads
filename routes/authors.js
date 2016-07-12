@@ -23,9 +23,8 @@ router.post('/add', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  db.getBookById(req.params.id).then(function (book) {
-    // console.log(book);
-    res.render('bookdetail', {book:book})
+  db.getAuthorById(req.params.id).then(function (author) {
+    res.render('authordetail', {author:author})
   });
 });
 
