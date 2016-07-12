@@ -24,6 +24,9 @@ module.exports = {
   },
   findAuthors: function () {
     return knex('author').select();
+  },
+  addAuthor: function (data) {
+    return knex('author').insert(data);
   }
 
 

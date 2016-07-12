@@ -12,13 +12,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-	res.render('addbook')
+	res.render('addauthor')
 });
 
 router.post('/add', function(req, res, next) {
 	// console.log(req.body);
-	db.addBook(req.body).then(function() {
-		res.redirect('/books');
+	db.addAuthor(req.body).then(function() {
+		res.redirect('/authors');
 	})
 });
 
