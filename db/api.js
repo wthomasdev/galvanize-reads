@@ -11,6 +11,11 @@ module.exports = {
     return knex('book').select().where({
       id: bookId
     }).first()
+  },
+  deleteBookById: function(bookId) {
+    return knex('book').del().where({
+      id: bookId
+    })
   }
 
 
