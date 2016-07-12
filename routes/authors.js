@@ -43,8 +43,8 @@ router.delete('/:id/delete', function(req, res, next){
 });
 
 router.get('/:id/edit', function(req, res, next) {
-  db.getBookById(req.params.id).then(function (book) {
-    res.render('editbook', {book:book})
+  db.getAuthorById(req.params.id).then(function (author) {
+    res.render('editauthor', {author:author})
   });
 });
 
@@ -52,7 +52,7 @@ router.put('/:id/edit', function(req, res, next) {
   console.log("hitting route!");
   db.editBook(req.params.id, req.body)
     .then(function(){
-      res.redirect('/books')
+      res.redirect('/authors')
     })
 });
 

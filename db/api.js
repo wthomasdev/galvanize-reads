@@ -43,6 +43,11 @@ module.exports = {
       id: authorId
     })
   },
+  editBook: function(authorId, edit) {
+    return knex('author').update(edit).where({
+      id: authorId
+    })
+  }
 
 
 };
