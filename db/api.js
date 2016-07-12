@@ -21,8 +21,10 @@ module.exports = {
     return knex('book').update(edit).where({
       id: bookId
     })
+  },
+  findAuthors: function () {
+    return knex('author').select();
   }
-
 
 
 };

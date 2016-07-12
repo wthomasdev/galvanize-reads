@@ -1,0 +1,33 @@
+
+<h1 class="center">Authors</h1>
+  <div class="container">
+    <a href="/authors/add" class="waves-effect waves-light btn btn-small">Add a author</a>
+    <div class="section">
+            <div class="row">
+          {{#each author}}
+          <div class="col s12 m4">
+              <div class="card medium">
+                  <div class="card-image waves-effect waves-block waves-light">
+                      <img class="activator imageborder" src="{{this.author_portrait_url}}">
+                  </div>
+                  <div class="card-content">
+                      <span class="card-title activator grey-text text-darken-4">{{this.first_name}} {{this.last_name}}<i class="material-icons right">more_vert</i></span>
+                      <br>
+                      <a href="/authors/{{this.id}}" class="waves-effect waves-light btn btn-small">More detail</a>
+
+                      <a href="/authors/{{this.id}}/confirm"><i class="fa fa-times small" aria-hidden="true"></i></a>
+                      <a href="/authors/{{this.id}}/edit" ><i class="fa fa-pencil small" aria-hidden="true"></i></a>
+                  </div>
+                  <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{this.first_name}}{{this.last_name}}<i class="material-icons right">close</i></span>
+          <p>
+            {{this.biography}}
+          </p>
+
+      </div>
+  </div>
+</div>
+{{/each}}
+    </div>
+  </div>
+</div>
