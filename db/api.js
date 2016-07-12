@@ -6,6 +6,11 @@ module.exports = {
   },
   addBook: function (data) {
     return knex('book').insert(data);
+  },
+  getBookById: function (bookId) {
+    return knex('book').select().where({
+      id: bookId
+    }).first()
   }
 
 

@@ -16,10 +16,17 @@ router.get('/add', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-	console.log(req.body);
+	// console.log(req.body);
 	db.addBook(req.body).then(function() {
 		res.redirect('/books');
 	})
+})
+
+router.get('/:id', function(req, res, next) {
+  db.getBookById(req.params.id).then(function (book) {
+    // console.log(book);
+    res.render('bookdetail', {book:book})
+  });
 })
 
 module.exports = router;

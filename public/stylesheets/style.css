@@ -40,3 +40,11 @@ main {
 .imageborder {
   border-bottom: 3px solid grey;
 }
+
+.center-btn {
+  text-align: center
+}
+
+#detail-center {
+  text-align:center;
+}
