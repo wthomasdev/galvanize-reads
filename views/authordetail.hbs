@@ -15,8 +15,19 @@
               <div class="card-reveal">
       <span class="card-title grey-text text-darken-4" id="detail-center">{{author.first_name}} {{author.last_name}}<i class="material-icons right">close</i></span>
       <p>
+        Biography:
+      </p>
+      <p>
         {{author.biography}}
       </p>
+      <p>
+        Books:
+      </p>
+      {{#each book}}
+        <p>
+          {{this.title}}
+        </p>
+      {{/each}}
 
   </div>
   <div class="center-btn">

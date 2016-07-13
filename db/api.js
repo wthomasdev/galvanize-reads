@@ -43,6 +43,16 @@ module.exports = {
   findAuthors: function () {
     return knex('author').select();
   },
+  findBooksByAuthorId: function (authorId) {
+    return knex('book').select().join('book_author', function() {
+      this.on('book.id', '=', 'book_author.book_id')
+
+    }).join('author', function () {
+      this.on('book_author.author_id', '=', 'author.id')
+    }).where({
+      author_id: authorId
+    });
+  },
   addAuthor: function (data) {
     return knex('author').insert(data);
   },
