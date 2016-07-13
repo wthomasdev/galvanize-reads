@@ -54,14 +54,23 @@ router.delete('/:id/delete', function(req, res, next){
 });
 
 router.get('/:id/edit', function(req, res, next) {
-  db.getBookById(req.params.id).then(function (book) {
-    res.render('editbook', {book:book})
+	return Promise.all([
+		db.getBookById(req.params.id),
+		db.findAuthors()
+	]).then(function (results) {
+    res.render('editbook', {book:results[0], author:results[1]})
   });
 });
 
 router.put('/:id/edit', function(req, res, next) {
-  console.log("hitting route!");
-  db.editBook(req.params.id, req.body)
+	var book = {
+	title: req.body.title,
+	book_genre: req.body.book_genre,
+	book_description: req.body.book_description,
+	book_cover_url: req.body.book_cover_url
+}
+var authorId = req.body.author_id
+  db.editBook(req.params.id,book, authorId)
     .then(function(){
       res.redirect('/books')
     })

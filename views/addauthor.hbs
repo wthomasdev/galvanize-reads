@@ -16,7 +16,7 @@
         <label for="author_portrait_url">Author Portrait Url:</label>
         <input id="author_portrait_url" type="url" name="author_portrait_url">
         <div class="input-field">
-            <select id="addbook" name="book_id">
+            <select required id="addbook" name="book_id">
                 <option value="" disabled selected></option>
                 {{#each book}}
                     <option value="{{this.id}}">{{this.title}}</option>

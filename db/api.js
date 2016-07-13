@@ -46,9 +46,14 @@ module.exports = {
       id: bookId
     })
   },
-  editBook: function(bookId, edit) {
-    return knex('book').update(edit).where({
+  editBook: function(bookId, book, authorId) {
+    return knex('book').update(book, 'id').where({
       id: bookId
+    }).then(function() {
+      return knex('book_author').insert({
+        author_id: authorId,
+        book_id:bookId
+      })
     })
   },
   findAuthors: function () {
@@ -93,7 +98,7 @@ module.exports = {
       id: authorId
     })
   },
-  editBook: function(authorId, edit) {
+  editAuthor: function(authorId, edit) {
     return knex('author').update(edit).where({
       id: authorId
     })

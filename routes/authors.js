@@ -53,14 +53,17 @@ router.delete('/:id/delete', function(req, res, next){
 });
 
 router.get('/:id/edit', function(req, res, next) {
-  db.getAuthorById(req.params.id).then(function (author) {
-    res.render('editauthor', {author:author})
+	return Promise.all([
+		db.findBooksByAuthorId(req.params.id),
+		db.getAuthorById(req.params.id)
+	]).then(function (results) {
+    res.render('editauthor', {author:results[1], book:results[0]})
   });
 });
 
 router.put('/:id/edit', function(req, res, next) {
   console.log("hitting route!");
-  db.editBook(req.params.id, req.body)
+  db.editAuthor(req.params.id, req.body)
     .then(function(){
       res.redirect('/authors')
     })
