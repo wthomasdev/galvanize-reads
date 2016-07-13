@@ -12,15 +12,20 @@ module.exports = {
       this.on('book_author.author_id', '=', 'author.id')
     })
   },
-  findAuthorsByBookId: function (bookId) {
-    return knex('author').select().join('book_author', function() {
-      this.on('author.id', '=', 'book_author.author_id')
-
-    }).join('book', function () {
-      this.on('book_author.book_id', '=', 'book.id')
-    }).where({
-      book_id: bookId
-    });
+  findAuthorsByBookId: function (id) {
+    return Promise.all([
+      knex('author').where('id', id).first(),
+      knex('author').where('author.id', id).first()
+      .then(function(author){
+        return knex('book_author').where({
+          author_id: author.id
+        }).pluck('book_id')
+        }).then(function(ids){
+        return knex('book').whereIn('id', ids)
+        }).then(function(results){
+        return results;
+      })
+    ]);
   },
    addBook: function (data) {
     return knex('book').insert(data);
@@ -43,15 +48,20 @@ module.exports = {
   findAuthors: function () {
     return knex('author').select();
   },
-  findBooksByAuthorId: function (authorId) {
-    return knex('book').select().join('book_author', function() {
-      this.on('book.id', '=', 'book_author.book_id')
-
-    }).join('author', function () {
-      this.on('book_author.author_id', '=', 'author.id')
-    }).where({
-      author_id: authorId
-    });
+  findBooksByAuthorId: function (id) {
+    return Promise.all([
+      knex('book').where('id', id).first(),
+      knex('book').where('book.id', id).first()
+      .then(function(book){
+        return knex('book_author').where({
+          book_id: book.id
+        }).pluck('author_id')
+        }).then(function(ids){
+        return knex('author').whereIn('id', ids)
+        }).then(function(results){
+        return results;
+      })
+    ]);
   },
   addAuthor: function (data) {
     return knex('author').insert(data);

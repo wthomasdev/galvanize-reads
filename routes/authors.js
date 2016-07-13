@@ -23,11 +23,9 @@ router.post('/add', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-	return Promise.all([
-		db.getAuthorById(req.params.id),
-		db.findBooksByAuthorId(req.params.id)
-	]).then(function (data) {
-    res.render('authordetail', {author:data[0], book:data[1]})
+	db.findAuthorsByBookId(req.params.id).then(function (results) {
+		console.log(results);
+    res.render('authordetail', {author:results[0], book:results[1]})
   });
 });
 
