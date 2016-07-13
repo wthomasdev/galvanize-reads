@@ -27,8 +27,14 @@ module.exports = {
       })
     ]);
   },
-   addBook: function (data) {
-    return knex('book').insert(data);
+   addBook: function (body, authorId) {
+    return knex('book').insert(body, 'id')
+    .then(function(id) {
+      return knex('book_author').insert({
+        author_id: authorId,
+        book_id:id[0]
+      })
+    })
   },
   getBookById: function (bookId) {
     return knex('book').select().where({
@@ -63,8 +69,14 @@ module.exports = {
       })
     ]);
   },
-  addAuthor: function (data) {
-    return knex('author').insert(data);
+  addAuthor: function (body, bookId) {
+    return knex('author').insert(body, 'id')
+    .then(function(id) {
+      return knex('book_author').insert({
+        book_id: bookId,
+        author_id:id[0]
+      })
+    })
   },
   deleteAuthorById: function(authorId) {
     return knex('author').del().where({

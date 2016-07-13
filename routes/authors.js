@@ -12,13 +12,22 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-	res.render('addauthor')
+	db.findBooks().then(function(books) {
+		res.render('addauthor', {book:books})
+	})
 });
 
 router.post('/add', function(req, res, next) {
-	// console.log(req.body);
-	db.addAuthor(req.body).then(function() {
-		res.redirect('/authors');
+	var author = {
+	first_name: req.body.first_name,
+	last_name: req.body.last_name,
+	biography: req.body.biography,
+	author_portrait_url: req.body.author_portrait_url
+	}
+	var bookId = req.body.book_id
+	db.addAuthor(author, bookId)
+	.then(function(){
+		res.redirect('/authors')
 	})
 });
 

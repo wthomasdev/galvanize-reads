@@ -15,7 +15,17 @@
         <textarea id="biography" name="biography" class="materialize-textarea"></textarea>
         <label for="author_portrait_url">Author Portrait Url:</label>
         <input id="author_portrait_url" type="url" name="author_portrait_url">
+        <div class="input-field">
+            <select id="addbook" name="book_id">
+                <option value="" disabled selected></option>
+                {{#each book}}
+                    <option value="{{this.id}}">{{this.title}}</option>
+                {{/each}}
+            </select>
+            <label for="activity_id">Add a book to Author</label>
+        </div>
         <button type="submit" class="waves-effect waves-light btn">Submit</button>
+
     </form>
 </div>
   </div>

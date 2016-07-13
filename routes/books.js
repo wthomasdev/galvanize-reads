@@ -4,12 +4,6 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	// db.findBooksAndAuthors().then(function(data) {
-	// 	console.log(data);
-	// 	res.render('books', {
-	// 		book:data
-	// 	})
-	// })
 	db.findBooks().then(function(data) {
 		res.render('books', {
 			book: data
@@ -18,13 +12,24 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-	res.render('addbook')
+	db.findAuthors().then(function(author) {
+		console.log(author);
+		res.render('addbook', {author:author})
+	});
+
 });
 
 router.post('/add', function(req, res, next) {
-	// console.log(req.body);
-	db.addBook(req.body).then(function() {
-		res.redirect('/books');
+	var book = {
+	title: req.body.title,
+	book_genre: req.body.book_genre,
+	book_description: req.body.book_description,
+	book_cover_url: req.body.book_cover_url
+}
+var authorId = req.body.author_id
+db.addBook(book, authorId)
+	.then(function(){
+		res.redirect('/books')
 	})
 });
 
