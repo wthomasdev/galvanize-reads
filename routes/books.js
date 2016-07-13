@@ -30,7 +30,7 @@ router.post('/add', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
 	db.findBooksByAuthorId(req.params.id).then(function (results) {
-		console.log(results[0]);
+		console.log(results);
     res.render('bookdetail', {book:results[0], author:results[1]})
   });
 });
