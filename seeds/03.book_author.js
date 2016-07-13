@@ -10,22 +10,22 @@ exports.seed = function(knex, Promise) {
           }),
           knex('book_author').insert(
             {
-              author_id:4,
-              book_id:1
-          }),
-          knex('book_author').insert(
-            {
-              author_id:5,
-              book_id:1
-          }),
-          knex('book_author').insert(
-            {
               author_id:2,
-              book_id:2
+              book_id:1
           }),
           knex('book_author').insert(
             {
               author_id:3,
+              book_id:1
+          }),
+          knex('book_author').insert(
+            {
+              author_id:4,
+              book_id:2
+          }),
+          knex('book_author').insert(
+            {
+              author_id:5,
               book_id:3
           }),
           knex('book_author').insert(

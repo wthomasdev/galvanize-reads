@@ -4,6 +4,14 @@ module.exports = {
   findBooks: function () {
     return knex('book').select();
   },
+  findBooksAndAuthors: function() {
+    return knex('book').select().join('book_author', function() {
+      this.on('book.id', '=', 'book_author.book_id')
+    })
+    .join('author', function() {
+      this.on('book_author.author_id', '=', 'author.id')
+    })
+  },
   addBook: function (data) {
     return knex('book').insert(data);
   },

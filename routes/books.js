@@ -4,11 +4,17 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	db.findBooks().then(function(data) {
+	db.findBooksAndAuthors().then(function(data) {
+		console.log(data);
 		res.render('books', {
-			book: data
-		});
+			books:data[0]
+		})
 	})
+	// db.findBooks().then(function(data) {
+	// 	res.render('books', {
+	// 		book: data
+	// 	});
+	// })
 });
 
 router.get('/add', function(req, res, next) {
