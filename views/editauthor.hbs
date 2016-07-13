@@ -6,15 +6,15 @@
     <br>
     <form action="/authors/{{author.id}}/edit/?_method=PUT" method="POST">
         <label for="first_name">First Name</label>
-        <input id="first_name" name="first_name" placeholder="{{author.first_name}}">
+        <input id="first_name" name="first_name" value="{{author.first_name}}">
         <label for="last_name">Last Name</label>
-        <input id="last_name" name="last_name" placeholder="{{author.last_name}}">
+        <input id="last_name" name="last_name" value="{{author.last_name}}">
         <br>
         <br>
         <label for="biography">Author Biography:</label>
-        <textarea id="biography" name="biography" class="materialize-textarea" placeholder="{{author.biography}}"></textarea>
+        <textarea id="biography" name="biography" class="materialize-textarea">{{author.biography}}</textarea>
         <label for="author_portrait_url">Author Portrait Url:</label>
-        <input id="author_portrait_url" type="url" name="author_portrait_url" placeholder="{{author.author_portrait_url}}">
+        <input id="author_portrait_url" type="url" name="author_portrait_url" value="{{author.author_portrait_url}}">
         <button type="submit" class="waves-effect waves-light btn">Submit</button>
         <a href="/authors" class="waves-effect waves-light btn">Back</a>
     </form>
