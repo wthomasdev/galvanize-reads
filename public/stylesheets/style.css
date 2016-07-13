@@ -7,6 +7,9 @@ body {
  -o-background-size: cover;
  background-size: cover;*/
  color:green;
+ display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 a {
@@ -22,15 +25,18 @@ nav {
 
 main {
   padding-left:5vw;
+  flex: 1 0 auto;
 }
 
-.card-panel {
-}
 
 .logoimage {
   padding-top:2vh;
   height:5vh;
   width:5vw;
+}
+
+.page-footer {
+  background-color:#3D3D3D;
 }
 
 .introtext {
@@ -47,4 +53,14 @@ main {
 
 #detail-center {
   text-align:center;
+}
+
+.mainflex {
+  display:flex;
+}
+
+.front-page {
+  height:30vh;
+  overflow: hidden;
+  object-fit: cover;
 }
