@@ -29,9 +29,12 @@ router.post('/add', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  db.getBookById(req.params.id).then(function (book) {
-    // console.log(book);
-    res.render('bookdetail', {book:book})
+	return Promise.all([
+		db.getBookById(req.params.id),
+		db.findAuthorsByBookId(req.params.id)
+	]).then(function (data) {
+		console.log(data)
+		res.render('bookdetail', {book:data[0], author:data[1]})
   });
 });
 

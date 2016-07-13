@@ -15,11 +15,21 @@
               <div class="card-reveal">
       <span class="card-title grey-text text-darken-4" id="detail-center">{{book.title}}<i class="material-icons right">close</i></span>
       <p>
+        Book Genre:
         {{book.book_genre}}
       </p>
       <p>
+        Book Description:
         {{book.book_description}}
       </p>
+      <p>
+        Authors:
+      </p>
+      {{#each author}}
+        <p>
+          {{this.first_name}} {{this.last_name}}
+        </p>
+      {{/each}}
 
   </div>
   <div class="center-btn">

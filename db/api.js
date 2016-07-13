@@ -12,7 +12,17 @@ module.exports = {
       this.on('book_author.author_id', '=', 'author.id')
     })
   },
-  addBook: function (data) {
+  findAuthorsByBookId: function (bookId) {
+    return knex('author').select().join('book_author', function() {
+      this.on('author.id', '=', 'book_author.author_id')
+
+    }).join('book', function () {
+      this.on('book_author.book_id', '=', 'book.id')
+    }).where({
+      book_id: bookId
+    });
+  },
+   addBook: function (data) {
     return knex('book').insert(data);
   },
   getBookById: function (bookId) {
