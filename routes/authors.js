@@ -30,8 +30,9 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/:id/confirm', function(req, res, next) {
-  db.getAuthorById(req.params.id).then(function (author) {
-    res.render('deleteauthor', {author:author})
+	db.findAuthorsByBookId(req.params.id).then(function (results) {
+		console.log(results);
+    res.render('deleteauthor', {author:results[0], book:results[1]})
   });
 });
 

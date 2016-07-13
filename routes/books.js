@@ -36,8 +36,8 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/:id/confirm', function(req, res, next) {
-  db.getBookById(req.params.id).then(function (book) {
-    res.render('deleteconfirmation', {book:book})
+  db.findBooksByAuthorId(req.params.id).then(function (results) {
+    res.render('deleteconfirmation', {book:results[0], author:results[1]})
   });
 });
 
