@@ -6,6 +6,9 @@ module.exports = {
       this.on('book.book_genre', '=', 'genre.id')
     });
   },
+  getGenre: function () {
+    return knex('genre').select()
+  },
   getBookGenreById: function(bookId) {
     return knex('book')
       .select()

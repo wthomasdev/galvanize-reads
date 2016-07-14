@@ -7,8 +7,15 @@
     <form action="/books/{{book.id}}/edit/?_method=PUT" method="POST">
         <label for="book_title">Book Title</label>
         <input id="book_title" name="title" value="{{book.title}}">
-        <label for="book_genre">Book Genre:</label>
-        <input id="book_genre" name="book_genre" value="{{book.genre}}">
+        <div class="input-field">
+            <select id="addgenre" name="book_genre">
+                <option value="{{book.book_genre}}" disabled selected>{{book.genre}}</option>
+                {{#each genre}}
+                    <option value="{{this.id}}">{{this.genre}}</option>
+                {{/each}}
+            </select>
+            <label for="book_genre">Book Genre:</label>
+        </div>
         <br>
         <br>
         <label for="book_description">Book Description:</label>

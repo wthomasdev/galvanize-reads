@@ -13,14 +13,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-	db.findAuthors().then(function(author) {
-		console.log(author);
-		res.render('addbook', {author:author})
+	return Promise.all([
+		db.getGenre(),
+		db.findAuthors()
+
+	]).then(function(results) {
+		console.log(results);
+		res.render('addbook', {author:results[1], genre:results[0]})
 	});
 
 });
 
 router.post('/add', function(req, res, next) {
+	console.log(req.body);
 	var book = {
 	title: req.body.title,
 	book_genre: req.body.book_genre,
@@ -60,10 +65,11 @@ router.delete('/:id/delete', function(req, res, next){
 router.get('/:id/edit', function(req, res, next) {
 	return Promise.all([
 		db.getBookGenreById(req.params.id),
-		db.findAuthors()
+		db.findAuthors(),
+		db.getGenre()
 	]).then(function (results) {
-    res.render('editbook', {book:results[0], author:results[1]})
-  });
+    res.render('editbook', {book:results[0], author:results[1], genre:results[2]});
+	});
 });
 
 router.put('/:id/edit', function(req, res, next) {
