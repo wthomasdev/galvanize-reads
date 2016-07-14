@@ -1,35 +1,35 @@
 <main class="container">
-  <div class="section">
-          <div class="row">
+    <div class="section">
+        <div class="row">
             <div class="col s12 m6 offset-m3">
-    <h4>Edit Author:</h4>
-    <br>
-    <form action="/authors/{{author.id}}/edit/?_method=PUT" method="POST">
-        <label for="first_name">First Name</label>
-        <input id="first_name" name="first_name" value="{{author.first_name}}">
-        <label for="last_name">Last Name</label>
-        <input id="last_name" name="last_name" value="{{author.last_name}}">
-        <br>
-        <br>
-        <label for="biography">Author Biography:</label>
-        <textarea id="biography" name="biography" class="materialize-textarea">{{author.biography}}</textarea>
-        <label for="author_portrait_url">Author Portrait Url:</label>
-        <input id="author_portrait_url" type="url" name="author_portrait_url" value="{{author.author_portrait_url}}">
-        <button type="submit" class="waves-effect waves-light btn">Submit</button>
-        <a href="/authors" class="waves-effect waves-light btn">Back</a>
-    </form>
+                <h4>Edit Author:</h4>
+                <br>
+                <form action="/authors/{{author.id}}/edit/?_method=PUT" method="POST">
+                    <label for="first_name">First Name</label>
+                    <input id="first_name" name="first_name" value="{{author.first_name}}">
+                    <label for="last_name">Last Name</label>
+                    <input id="last_name" name="last_name" value="{{author.last_name}}">
+                    <br>
+                    <br>
+                    <label for="biography">Author Biography:</label>
+                    <textarea id="biography" name="biography" class="materialize-textarea">{{author.biography}}</textarea>
+                    <label for="author_portrait_url">Author Portrait Url:</label>
+                    <input id="author_portrait_url" type="url" name="author_portrait_url" value="{{author.author_portrait_url}}">
+                    <button type="submit" class="waves-effect waves-light btn">Submit</button>
+                    <a href="/authors" class="waves-effect waves-light btn">Back</a>
+                </form>
 
-  <h5>{{author.first_name}} {{author.last_name}}'s books:</h5>
-  <div class="input-field">
-      <select>
-          {{#each book}}
-          <option>{{this.title}}
-        </option>
-          {{/each}}
-      </select>
-  </div>
+                <h5>{{author.first_name}} {{author.last_name}}'s books:</h5>
+                <div class="input-field">
+                    <select>
+                        {{#each book}}
+                            <option>{{this.title}}
+                            </option>
+                        {{/each}}
+                    </select>
+                </div>
 
-</div>
-  </div>
-</div>
+            </div>
+        </div>
+    </div>
 </main>

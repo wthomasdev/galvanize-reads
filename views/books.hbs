@@ -1,41 +1,40 @@
-
-  <div class="container">
+<div class="container">
     <br>
     <a href="/books/add" class="waves-effect waves-light btn btn-small">Add a book</a>
     <div class="section">
-    <h5>Books in the database: {{count.count}}</h5>
-            <div class="row">
-          {{#each book}}
-          <div class="col s12 m4">
-              <div class="card medium">
-                  <div class="card-image waves-effect waves-block waves-light">
-                      <img class="activator imageborder" src="{{this.book_cover_url}}">
-                  </div>
-                  <div class="card-content">
-                      <span class="card-title activator grey-text text-darken-4">{{this.title}}<i class="material-icons right">more_vert</i></span>
-                      <br>
-                      <a href="/books/{{this.id}}" class="waves-effect waves-light btn btn-small">More detail</a>
+        <h5>Books in the database: {{count.count}}</h5>
+        <div class="row">
+            {{#each book}}
+                <div class="col s12 m4">
+                    <div class="card medium">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator imageborder" src="{{this.book_cover_url}}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{this.title}}<i class="material-icons right">more_vert</i></span>
+                            <br>
+                            <a href="/books/{{this.id}}" class="waves-effect waves-light btn btn-small">More detail</a>
 
-                      <a href="/books/{{this.id}}/confirm"><i class="fa fa-times small" aria-hidden="true"></i></a>
-                      <a href="/books/{{this.id}}/edit" ><i class="fa fa-pencil small" aria-hidden="true"></i></a>
-                  </div>
-                  <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{this.title}}<i class="material-icons right">close</i></span>
-          <p>
-            {{this.genre}}
-          </p>
-          <p>
-            {{this.book_description}}
-          </p>
-          {{#each this.authors}}
-          <br>
-          <a href="/authors/{{author_id}}">{{first_name}} {{last_name}}</a>
-          {{/each}}
+                            <a href="/books/{{this.id}}/confirm"><i class="fa fa-times small" aria-hidden="true"></i></a>
+                            <a href="/books/{{this.id}}/edit"><i class="fa fa-pencil small" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">{{this.title}}<i class="material-icons right">close</i></span>
+                            <p>
+                                {{this.genre}}
+                            </p>
+                            <p>
+                                {{this.book_description}}
+                            </p>
+                            {{#each this.authors}}
+                                <br>
+                                <a href="/authors/{{author_id}}">{{first_name}} {{last_name}}</a>
+                            {{/each}}
 
-      </div>
-  </div>
-</div>
-{{/each}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     </div>
-  </div>
 </div>

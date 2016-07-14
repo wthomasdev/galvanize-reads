@@ -1,43 +1,43 @@
 <main class="container">
-  <div class="section">
-          <div class="row">
+    <div class="section">
+        <div class="row">
             <div class="col s12 m6 offset-m3">
-    <h4>Edit book:</h4>
-    <br>
-    <form action="/books/{{book.id}}/edit/?_method=PUT" method="POST">
-        <label for="book_title">Book Title</label>
-        <input id="book_title" name="title" value="{{book.title}}">
-        <div class="input-field">
-            <select id="addgenre" name="book_genre">
-                <option value="{{book.book_genre}}" disabled selected>{{book.genre}}</option>
-                {{#each genre}}
-                    <option value="{{this.id}}">{{this.genre}}</option>
-                {{/each}}
-            </select>
-            <label for="book_genre">Book Genre:</label>
+                <h4>Edit book:</h4>
+                <br>
+                <form action="/books/{{book.id}}/edit/?_method=PUT" method="POST">
+                    <label for="book_title">Book Title</label>
+                    <input id="book_title" name="title" value="{{book.title}}">
+                    <div class="input-field">
+                        <select id="addgenre" name="book_genre">
+                            <option value="{{book.book_genre}}" disabled selected>{{book.genre}}</option>
+                            {{#each genre}}
+                                <option value="{{this.id}}">{{this.genre}}</option>
+                            {{/each}}
+                        </select>
+                        <label for="book_genre">Book Genre:</label>
+                    </div>
+                    <br>
+                    <br>
+                    <label for="book_description">Book Description:</label>
+                    <textarea id="book_description" name="book_description" class="materialize-textarea">{{book.book_description}}</textarea>
+                    <label for="book_cover_url">Book Cover Url:</label>
+                    <input id="book_cover_url" type="url" name="book_cover_url" value="{{book.book_cover_url}}">
+                    <div class="input-field">
+                        <select id="addauthor" name="author_id">
+                            <option value="" disabled selected></option>
+                            {{#each author}}
+                                <option value="{{this.id}}">{{this.first_name}} {{this.last_name}}</option>
+                            {{/each}}
+                        </select>
+                        <label for="addauthor">Add an Author</label>
+                    </div>
+                    <button type="submit" class="waves-effect waves-light btn">Submit</button>
+                    <a href="/books" class="waves-effect waves-light btn">Back</a>
+                </form>
+
+
+
+            </div>
         </div>
-        <br>
-        <br>
-        <label for="book_description">Book Description:</label>
-        <textarea id="book_description" name="book_description" class="materialize-textarea">{{book.book_description}}</textarea>
-        <label for="book_cover_url">Book Cover Url:</label>
-        <input id="book_cover_url" type="url" name="book_cover_url" value="{{book.book_cover_url}}">
-        <div class="input-field">
-            <select id="addauthor" name="author_id">
-                <option value="" disabled selected></option>
-                {{#each author}}
-                    <option value="{{this.id}}">{{this.first_name}} {{this.last_name}}</option>
-                {{/each}}
-            </select>
-            <label for="addauthor">Add an Author</label>
-        </div>
-        <button type="submit" class="waves-effect waves-light btn">Submit</button>
-        <a href="/books" class="waves-effect waves-light btn">Back</a>
-    </form>
-
-
-
-</div>
-  </div>
-</div>
+    </div>
 </main>

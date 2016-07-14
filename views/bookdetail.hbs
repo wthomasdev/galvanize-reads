@@ -1,46 +1,44 @@
 <div class="container">
-  <div class="section">
-  <div class="row">
-<div class="col s12 m12">
-    <div class="row">
-        <div class="col s12 m6 offset-m3">
-          <div class="card large">
-              <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator imageborder" src="{{book.book_cover_url}}">
-              </div>
-              <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">{{book.title}}<i class="material-icons right">more_vert</i></span>
-                  <br>
-              </div>
-              <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4" id="detail-center">{{book.title}}<i class="material-icons right">close</i></span>
-      <p>
-        Book Genre:
-        {{book.genre}}
-      </p>
-      <p>
-        Book Description:
-        {{book.book_description}}
-      </p>
-      <p>
-        Authors:
-      </p>
-      {{#each author}}
-        <p>
-          <a href="/authors/{{this.id}}">{{this.first_name}} {{this.last_name}}</a>
-        </p>
-      {{/each}}
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="row">
+                    <div class="col s12 m6 offset-m3">
+                        <div class="card large">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator imageborder" src="{{book.book_cover_url}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{book.title}}<i class="material-icons right">more_vert</i></span>
+                                <br>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4" id="detail-center">{{book.title}}<i class="material-icons right">close</i></span>
+                                <p>
+                                    Book Genre: {{book.genre}}
+                                </p>
+                                <p>
+                                    Book Description: {{book.book_description}}
+                                </p>
+                                <p>
+                                    Authors:
+                                </p>
+                                {{#each author}}
+                                    <p>
+                                        <a href="/authors/{{this.id}}">{{this.first_name}} {{this.last_name}}</a>
+                                    </p>
+                                {{/each}}
 
-  </div>
-  <div class="center-btn">
-    <a href="/books/{{book.id}}/edit/" class=" waves-effect waves-light btn">Edit Book</a>
-    <a href="/books/{{book.id}}/confirm" class="waves-effect waves-light btn">Delete Book</a>
-</div>
-</div>
-<center><a href="/books" class="waves-effect waves-light btn">Back to books</a></center>
+                            </div>
+                            <div class="center-btn">
+                                <a href="/books/{{book.id}}/edit/" class=" waves-effect waves-light btn">Edit Book</a>
+                                <a href="/books/{{book.id}}/confirm" class="waves-effect waves-light btn">Delete Book</a>
+                            </div>
+                        </div>
+                        <center><a href="/books" class="waves-effect waves-light btn">Back to books</a></center>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-</div>
 </div>

@@ -1,74 +1,59 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color:#EAEBED;
-  /*background: url(https://continuumgrc.com/wp-content/uploads/2016/01/library_infinite.jpg) no-repeat center center fixed;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #EAEBED;
+    /*background: url(https://continuumgrc.com/wp-content/uploads/2016/01/library_infinite.jpg) no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;*/
- color:#26A69A;
- display: flex;
+    color: #26A69A;
+    display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
-
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
-
-
-
 nav {
-  background-color:#3D3D3D;
-  opacity:0.8;
+    background-color: #3D3D3D;
+    opacity: 0.8;
 }
-
 main {
-  display:flex;
-  padding-left:5vw;
-  flex: 1 0 auto;
+    display: flex;
+    padding-left: 5vw;
+    flex: 1 0 auto;
 }
-
 .logoimage {
-  padding-top:2vh;
-  height:5vh;
-  width:5vw;
+    padding-top: 2vh;
+    height: 5vh;
+    width: 5vw;
 }
-
 .introtext {
-  color:#3D3D3D;
+    color: #3D3D3D;
 }
-
 .imageborder {
-  border-bottom: 3px solid grey;
+    border-bottom: 3px solid grey;
 }
-
 .center-btn {
-  text-align: center
+    text-align: center
 }
-
-
 #detail-center {
-  text-align:center;
+    text-align: center;
 }
-
 .mainflex {
-  display:flex;
+    display: flex;
 }
-
 .footer-center {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background-color:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
 }
-
 .footer-text {
-  font-size:1.5em;
+    font-size: 1.5em;
 }
-
 .front-page {
-  height:30vh;
-  overflow:hidden;
-  object-fit: cover;
+    height: 30vh;
+    overflow: hidden;
+    object-fit: cover;
 }
