@@ -2,6 +2,8 @@
 
 Galvanize Reads is a book catalog service that stores a list of recommended technology books. Galvanize Reads allows you to:
 
+See the app live at: https://galvanize-reads-will.herokuapp.com/
+
 * List books and authors
 * Add books and authors
 * Modify books and authors
