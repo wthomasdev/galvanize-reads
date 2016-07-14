@@ -1,7 +1,7 @@
 getAllBooks: function() {
   return knex('book')
-    .join('genre', 'book.genre_id', '=', 'genre.id')
-    .select('book.id as id', 'book.title', 'genre.name as genre', 'book.description', 'book.cover_url');
+    .join('genre', 'book.book_genre', '=', 'genre.id')
+    .select('book.id as id', 'book.title', 'book_genre as genre', 'book.description', 'book_cover_url');
 },
 getAuthorsByBookId: function(bookId) {
   return knex('author').select('author.first_name', 'author.last_name', 'author.id as author_id')

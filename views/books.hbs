@@ -26,6 +26,10 @@
           <p>
             {{this.book_description}}
           </p>
+          {{#each this.authors}}
+          <br>
+          <a href="/authors/{{author_id}}">{{first_name}} {{last_name}}</a>
+          {{/each}}
 
       </div>
   </div>
