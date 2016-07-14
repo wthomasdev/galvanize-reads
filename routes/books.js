@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 		db.countBooks(),
 		db.listBooksWithAuthorsForMerge()
 	]).then(function(data) {
-		console.log(data[0][0]);
 		res.render('books', {
 			book: data[1],
 			count: data[0][0]
@@ -22,7 +21,6 @@ router.get('/add', function(req, res, next) {
 		db.findAuthors()
 
 	]).then(function(results) {
-		console.log(results);
 		res.render('addbook', {
 			author: results[1],
 			genre: results[0]
@@ -32,7 +30,6 @@ router.get('/add', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-	console.log(req.body);
 	var book = {
 		title: req.body.title,
 		book_genre: req.body.book_genre,
@@ -51,7 +48,6 @@ router.get('/:id', function(req, res, next) {
 		db.getBookGenreById(req.params.id),
 		db.findBooksByAuthorId(req.params.id)
 	]).then(function(results) {
-		console.log(results[1][1])
 		res.render('bookdetail', {
 			book: results[0],
 			author: results[1][1]
