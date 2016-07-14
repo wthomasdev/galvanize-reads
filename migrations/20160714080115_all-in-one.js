@@ -1,12 +1,12 @@
 exports.up = function(knex, Promise) {
 		return knex.schema.createTable('genre', function(table) {
 			table.increments();
-			table.string('genre');
+			table.string('genre')
 		}).then(function(table) {
 			return knex.schema.createTable('book', function(table) {
 				table.increments();
-				table.string('title').unique().notNullable();
-				table.integer('book_genre').references('id').inTable('genre').notNullable();
+				table.string('title').notNullable();
+				table.integer('book_genre').references('id').inTable('genre').onDelete('cascade');
 				table.text('book_description').notNullable();
 				table.string('book_cover_url');
 			}).then(function(table) {
@@ -29,11 +29,11 @@ exports.up = function(knex, Promise) {
 
 		exports.down = function(knex, Promise) {
 			return knex.schema.dropTableIfExists('book_author').then(function() {
-				return knex.schema.dropTableIfExists('genre')
+				return knex.schema.dropTableIfExists('author')
 			}).then(function() {
 				return
 				knex.schema.dropTableIfExists('book')
 			}).then(function() {
-				return knex.schema.dropTableIfExists('author')
+				return knex.schema.dropTableIfExists('genre')
 			})
 		};

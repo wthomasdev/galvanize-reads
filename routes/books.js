@@ -4,10 +4,13 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	db.listBooksWithAuthorsForMerge().then(function(data) {
-		console.log(data);
+	return Promise.all([
+		db.countBooks(),
+		db.listBooksWithAuthorsForMerge()
+	]).then(function(data) {
+		console.log(data[0][0]);
 		res.render('books', {
-			book: data
+			book: data[1], count: data[0][0]
 	});
 });
 });

@@ -6,6 +6,9 @@ module.exports = {
       this.on('book.book_genre', '=', 'genre.id')
     });
   },
+  countBooks: function() {
+    return knex('book').count()
+  },
   getGenre: function () {
     return knex('genre').select()
   },
@@ -116,6 +119,9 @@ module.exports = {
     return knex('author').update(edit).where({
       id: authorId
     })
+  },
+  countAuthors: function() {
+    return knex('author').count()
   },
   getAllBooksForMerge: function() {
     return knex('book')

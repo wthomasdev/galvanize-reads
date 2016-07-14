@@ -4,9 +4,12 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	db.listAuthorsWithBooksForMerge().then(function(data) {
+	return Promise.all([
+		db.countAuthors(),
+		db.listAuthorsWithBooksForMerge()
+	]).then(function(data) {
 		res.render('authors', {
-			author: data
+			author: data[1], count: data[0][0]
 		});
 	})
 });
