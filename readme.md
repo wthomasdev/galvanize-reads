@@ -10,7 +10,7 @@ See the app live at: https://galvanize-reads-will.herokuapp.com/
 * Remove books and authors
 
 ![Image of Galvanize Reads]
-(https://github.com/wthomasdev/galvanize-reads/tree/master/public/images/galvanize-reads.png)
+(https://github.com/wthomasdev/galvanize-reads/blob/master/public/images/galvanize-reads-books.png)
 
 
 <h2>How to start:</h2>
