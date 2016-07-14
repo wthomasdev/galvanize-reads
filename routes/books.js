@@ -5,6 +5,7 @@ var db = require('../db/api');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	db.findBooks().then(function(data) {
+		console.log(data);
 		res.render('books', {
 			book: data
 		});
@@ -34,9 +35,12 @@ db.addBook(book, authorId)
 });
 
 router.get('/:id', function(req, res, next) {
-	db.findBooksByAuthorId(req.params.id).then(function (results) {
-		console.log(results);
-    res.render('bookdetail', {book:results[0], author:results[1]})
+	return Promise.all([
+		db.getBookGenreById(req.params.id),
+		db.findBooksByAuthorId(req.params.id)
+	]).then(function (results) {
+		console.log(results[1][1])
+    res.render('bookdetail', {book:results[0], author:results[1][1]})
   });
 });
 
@@ -55,7 +59,7 @@ router.delete('/:id/delete', function(req, res, next){
 
 router.get('/:id/edit', function(req, res, next) {
 	return Promise.all([
-		db.getBookById(req.params.id),
+		db.getBookGenreById(req.params.id),
 		db.findAuthors()
 	]).then(function (results) {
     res.render('editbook', {book:results[0], author:results[1]})

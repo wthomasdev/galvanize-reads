@@ -16,7 +16,7 @@
       <span class="card-title grey-text text-darken-4" id="detail-center">{{book.title}}<i class="material-icons right">close</i></span>
       <p>
         Book Genre:
-        {{book.book_genre}}
+        {{book.genre}}
       </p>
       <p>
         Book Description:
@@ -27,7 +27,7 @@
       </p>
       {{#each author}}
         <p>
-          <a href="/authors/{{this.id}}">{{this.first_name}} {{this.last_name}}</a>  
+          <a href="/authors/{{this.id}}">{{this.first_name}} {{this.last_name}}</a>
         </p>
       {{/each}}
 

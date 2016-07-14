@@ -2,7 +2,18 @@ var knex = require('./knex');
 
 module.exports = {
   findBooks: function () {
-    return knex('book').select();
+    return knex('book').select().join('genre', function() {
+      this.on('book.book_genre', '=', 'genre.id')
+    });
+  },
+  getBookGenreById: function(bookId) {
+    return knex('book')
+      .select()
+      .join('genre', function () {
+        this.on('book.book_genre', '=', 'genre.id')
+      })
+      .where('book.id', '=', bookId)
+      .first()
   },
   findBooksAndAuthors: function() {
     return knex('book').select().join('book_author', function() {
