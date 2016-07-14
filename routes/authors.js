@@ -4,7 +4,7 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	db.findAuthors().then(function(data) {
+	db.listAuthorsWithBooksForMerge().then(function(data) {
 		res.render('authors', {
 			author: data
 		});

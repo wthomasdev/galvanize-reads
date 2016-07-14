@@ -140,5 +140,30 @@ module.exports = {
     ).then(function (data) {
       return Promise.all(data);
     });
-  }
+  },
+  getAllAuthorsForMerge: function() {
+		return knex('author').select().orderBy('first_name', 'ASC');
+	},
+  getBooksByAuthorIdForMerge: function (authorId) {
+    return knex('book').select('book.title', 'book.id as book_id')
+			.innerJoin('book_author', 'book.id', 'book_author.book_id')
+			.where({
+				'book_author.author_id': authorId
+			});
+  },
+  listAuthorsWithBooksForMerge: function() {
+    return this.getAllAuthorsForMerge()
+			.then((returnedAuthors) => {
+				return returnedAuthors.map((author) => {
+					return this.getBooksByAuthorIdForMerge(author.id)
+						.then(function(books) {
+              author.books = books;
+              return author;
+						});
+				});
+			}
+    ).then(function (data) {
+	    return Promise.all(data);
+	  });
+	},
 };

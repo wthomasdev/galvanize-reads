@@ -23,7 +23,11 @@
           <p>
             {{this.biography}}
           </p>
-
+          <br>
+          Books:
+          {{#each this.books}}
+          <a href="/books/{{book_id}}">{{title}}</a>
+          {{/each}}
       </div>
   </div>
 </div>
