@@ -6,7 +6,7 @@ body {
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;*/
- color:green;
+ color:#26A69A;
  display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -24,19 +24,15 @@ nav {
 }
 
 main {
+  display:flex;
   padding-left:5vw;
   flex: 1 0 auto;
 }
-
 
 .logoimage {
   padding-top:2vh;
   height:5vh;
   width:5vw;
-}
-
-.page-footer {
-  background-color:#3D3D3D;
 }
 
 .introtext {
@@ -51,6 +47,7 @@ main {
   text-align: center
 }
 
+
 #detail-center {
   text-align:center;
 }
@@ -59,8 +56,19 @@ main {
   display:flex;
 }
 
+.footer-center {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color:none;
+}
+
+.footer-text {
+  font-size:1.5em;
+}
+
 .front-page {
   height:30vh;
-  overflow: hidden;
+  overflow:hidden;
   object-fit: cover;
 }
